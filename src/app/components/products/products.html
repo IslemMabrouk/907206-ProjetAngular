@@ -1,0 +1,78 @@
+<section class="products-list">
+    <h2 id="products" class="testH2">Nos Produits</h2>
+
+    <div class="products-container"> <!-- Flex Container -->
+        <!-- Injecter le contenu à partir du main.js -->
+    </div>
+
+    <!-- Liste des produits dans un tableau -->
+    <div class="table-container">
+        <table>
+            <!-- Titre du tableau -->
+            <caption>Liste des produits</caption>
+            <!-- Entete du tableau -->
+            <thead class="table-secondary">
+                <!-- Ligne du tableau -->
+                <tr>
+                    <!-- th : Cellule de l'entete du tableau -->
+                    <th>Catégories</th>
+                    <th>Produit</th>
+                    <th>Images</th>
+                    <th>Description</th>
+                    <th>Prix</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <!-- Corps du tableau -->
+            <tbody>
+                <tr>
+                    <!-- td : Cellule du tableau -->
+                    <td rowspan="2">Homme</td>
+                    <td>Chemise</td>
+                    <td>
+                        <span class="badge-table">Promo</span>
+                        <img src="assets/images/chemise-homme.webp" alt="Chemise Homme">
+                    </td>
+                    <td>Description du produit 1</td>
+                    <td>10</td>
+                    <td>
+                        <button type="button">Acheter</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Jean</td>
+                    <td>
+                        <img src="assets/images/jean-homme.jfif" alt="Jean Homme">
+                    </td>
+                    <td>Description du produit 2</td>
+                    <td>15</td>
+                    <td>
+                        <button type="button">Acheter</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Femme</td>
+                    <td>Veste Femme</td>
+                    <td>
+                        <img src="assets/images/veste-femme.webp" alt="Veste Femme">
+                    </td>
+                    <td>Description produit 3</td>
+                    <td>30</td>
+                    <td>
+                        <button type="button">Acheter</button>
+                    </td>
+                </tr>
+
+                <!-- Ligne Promotion -->
+                <tr>
+                    <td>Promotion</td>
+                    <td colspan="5">20% sur tous les articles</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</section>
