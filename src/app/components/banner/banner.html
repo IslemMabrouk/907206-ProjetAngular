@@ -2,7 +2,10 @@
     <div class="container">
         <div class="row">
             <div class="col-6">
-                <h2>Bienvenue sur notre boutique</h2>
+                @if (y) {
+                <h2>{{ titre }}</h2>
+                }
+                <p>{{ somme(5,10) }}</p>
                 <p class="presentation">
                     <b>MyShop</b> est <strong>une boutique de vente en ligne</strong>.
                 </p>

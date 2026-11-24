@@ -13,25 +13,35 @@
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
                     <li class="nav-item">
-                        <a href="index.html">Accueil</a>
+                        <a routerLink="/">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a href="pages/about.html">A propos</a>
+                        <a routerLink="/about">A propos</a>
                     </li>
                     <li class="nav-item">
-                        <a href="pages/products.html">Produits</a>
+                        <a routerLink="/products">Produits</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Dashboard
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" routerLink="/addProduct">Add product</a></li>
+                            <li><a class="dropdown-item" routerLink="/admin">Admin</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="pages/signup.html">Inscription</a>
+                        <a routerLink="">Inscription</a>
                     </li>
                     <li class="nav-item">
-                        <a href="pages/signin.html">Connexion</a>
+                        <a routerLink="">Connexion</a>
                     </li>
                     <li class="nav-item">
-                        <a href="pages/cart.html">Panier</a>
+                        <a routerLink="">Panier</a>
                     </li>
                     <li class="nav-item">
-                        <a href="pages/contact.html">Contact</a>
+                        <a routerLink="">Contact</a>
                     </li>
                 </ul>
             </div>
