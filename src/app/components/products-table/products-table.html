@@ -1,33 +1,37 @@
+
+@if (isConnected) {
+<div>
+    Bonjour Islem!
+</div>
+}
 <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nom</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Prix</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Prod1</td>
-                        <td>Description1</td>
-                        <td>20£</td>
-                        <td>
-                            <button type="button" class="btn btn-success">Modifier</button>
-                            <button type="button" class="btn btn-danger">Supprimer</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Prod2</td>
-                        <td>Description2</td>
-                        <td>50£</td>
-                        <td>
-                            <button type="button" class="btn btn-success">Modifier</button>
-                            <button type="button" class="btn btn-danger">Supprimer</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Description</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- product ou elt var qui répresente un prod à chaque tour  -->
+        <!-- of Permet de parcourir le tableau -->
+        <!-- productsTab : Tableau à parcourir -->
+        <!-- track product.id : Permet à Angular d'identifier chaque produit grace à son id -->
+        <!-- let i=$index : Permet de récupérer l'index (position) de chaque élement du tableau -->
+        @for(product of productsTab; track product.id; let i=$index ){
+        <tr>
+            <th scope="row">{{ product.id }}</th>
+            <td>{{ product.name }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.price }}£</td>
+            <td>
+                <button type="button" class="btn btn-primary" (click)="display(product.id)" >Voir Details</button>
+                <button type="button" class="btn btn-success" (click)="goToEdit(product.id)">Modifier</button>
+                <button type="button" class="btn btn-danger" (click)="deleteproduct(product.id)">Supprimer</button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
