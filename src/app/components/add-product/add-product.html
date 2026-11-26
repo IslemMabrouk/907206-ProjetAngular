@@ -1,22 +1,22 @@
-<form id="formProduct" class="form">
+<form id="formProduct"  class="form" #productForm="ngForm" (ngSubmit)="addProduct(productForm)">
     <h2>Ajout Produit</h2>
 
     <div>
         <label for="nom">Nom :</label>
-        <input type="text" id="nom" placeholder="Le nom de votre produit" required>
+        <input type="text" id="nom" [(ngModel)]="product.name" name="name" placeholder="Le nom de votre produit" required>
     </div>
 
     <div>
         <label for="prix">Prix :</label>
-        <input type="number" id="prix" required>
+        <input type="number" [(ngModel)]="product.price" name="price" id="prix" required>
     </div>
     <div>
         <label for="descirption">descirption :</label>
-        <textarea rows="2" id="descirption" placeholder="Votre message" required></textarea>
+        <textarea rows="2" id="descirption" [(ngModel)]="product.description" name="decription" placeholder="Votre message" required></textarea>
     </div>
     <div>
         <label for="imgURL">ImgURL :</label>
-        <input type="text" id="imgURL" placeholder="L'img de votre produit" required>
+        <input type="text" id="imgURL" [(ngModel)]="product.imgURL" name="imgURL" placeholder="L'img de votre produit" required>
     </div>
 
     <button type="submit">Ajouter</button>

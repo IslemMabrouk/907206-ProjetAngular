@@ -1,4 +1,4 @@
-<form class="form" id="inscription-form">
+<form class="form" id="inscription-form" [formGroup]="signupForm" (ngSubmit)="signup()">
     <h2>Inscrption</h2>
     <!-- Boite spéciale pour regrouper des champs de formulaire liés -->
     <fieldset class="signup-fieldset">
@@ -10,17 +10,42 @@
             <!-- id : donne l'identifiant de cet element -->
             <!-- for et id travaillent ensemble pour relier le label à son champ -->
             <label for="nom">Nom :</label>
-            <input type="text" class="nom" id="nom" placeholder="Votre Nom" required>
+            <input type="text" class="nom" id="nom" formControlName="userName" placeholder="Votre Nom" required>
+            <!-- Msg Erreur -->
+            @if (signupForm.get('userName')?.invalid && (signupForm.get('userName')?.touched ||
+            signupForm.get('userName')?.dirty)) {
+            @if(signupForm.get('userName')?.errors?.['required']){
+            <div class="text-danger">
+                Ce champ est obligatoire
+            </div>
+            }@else if (signupForm.get('userName')?.errors?.['minlength']) {
+            <div class="text-danger">
+                Il faut entrer au min 3 caractères
+            </div>
+            }
+            }
         </div>
 
         <div>
             <label for="email">Email :</label>
-            <input type="email" id="email" placeholder="exemple@gmail.com" required>
+            <input type="email" id="email" formControlName="email" placeholder="exemple@gmail.com" required>
+            <!-- Msg Erreur -->
+            @if(signupForm.get('email')?.invalid && (signupForm.get('email')?.touched || signupForm.get('email')?.dirty )){
+            @if(signupForm.get('email')?.errors?.['required']){
+            <div class="text-danger">
+                Ce champ est obligatoire
+            </div>
+            }@else if (signupForm.get('email')?.errors?.['email']) {
+            <div class="text-danger">
+                Il faut entrer un email de type exemple@gmail.com
+            </div>
+            }
+            }
         </div>
 
         <div>
             <label for="pwd">Mot de passe :</label>
-            <input type="password" id="pwd" placeholder="Votre mot de passe" required>
+            <input type="password" id="pwd" formControlName="pwd" placeholder="Votre mot de passe" required>
         </div>
     </fieldset>
 
@@ -31,13 +56,13 @@
     <fieldset class="signup-fieldset">
         <legend class="signup-legend">Genre :</legend>
 
-        <input type="radio" id="femme" name="genre" value="femme">
+        <input type="radio" id="femme" formControlName="gender" name="gender" value="femme">
         <label for="femme">Femme</label>
 
-        <input type="radio" id="homme" name="genre" value="homme">
+        <input type="radio" id="homme" formControlName="gender" name="gender" value="homme">
         <label for="homme">Homme</label>
 
-        <input type="radio" id="autre" name="genre" value="autre">
+        <input type="radio" id="autre" formControlName="gender" name="gender" value="autre">
         <label for="autre">Autre</label>
     </fieldset>
 
@@ -45,21 +70,21 @@
     <fieldset class="signup-fieldset">
         <legend class="signup-legend"> Intérets : </legend>
 
-        <input type="checkbox" name="interets" id="vetements" value="vetements">
+        <input type="checkbox" name="interets" formControlName="clothes" id="vetements" value="vetements">
         <label for="vetements"> Vetements </label>
 
-        <input type="checkbox" name="interets" id="accessoires" value="accessoires">
+        <input type="checkbox" name="interets" formControlName="accessoires" id="accessoires" value="accessoires">
         <label for="accessoires"> Accessoires </label>
     </fieldset>
 
     <!-- Liste déroulante  -->
     <div>
         <label for="pays">Pays :</label>
-        <select name="pays" id="pays">
+        <select name="pays" id="pays" formControlName="country">
             <option value="france">France</option>
             <option value="tunisie">Tunisie</option>
         </select>
     </div>
     <!-- </fieldset> -->
-    <button type="submit">S'inscrire</button>
+    <button type="submit" [disabled]="signupForm.invalid">S'inscrire</button>
 </form>
